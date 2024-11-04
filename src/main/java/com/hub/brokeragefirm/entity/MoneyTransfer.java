@@ -1,6 +1,5 @@
 package com.hub.brokeragefirm.entity;
 
-import com.hub.brokeragefirm.enums.TransferStatus;
 import com.hub.brokeragefirm.enums.TransferType;
 import jakarta.persistence.*;
 import lombok.*;
@@ -18,7 +17,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class MoneyTransfers {
+public class MoneyTransfer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,17 +32,13 @@ public class MoneyTransfers {
     @Column(nullable = false, precision = 15, scale = 2)
     private BigDecimal amount;
 
+    @Column(nullable = false, precision = 15, scale = 2)
+    private BigDecimal balanceAfterTransaction;
+
     @Column(nullable = false)
-    private LocalDateTime transferDate;
+    private LocalDateTime transactionDate;
 
     @Column
     private String iban;  // For withdrawals
-
-    @Column(nullable = false)
-    private Long processedByEmployeeId;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private TransferStatus status;
 
 }
