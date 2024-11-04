@@ -33,4 +33,16 @@ public interface OrderMapper {
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void updateEntityFromDto(OrderRequest dto, @MappingTarget Order entity);
+
+    default Order createOrderFromRequest(OrderRequest request) {
+        return Order.builder()
+                .customerId(request.getCustomerId())
+                .assetName(request.getAssetName())
+                .orderSide(request.getOrderSide())
+                .size(request.getSize())
+                .price(request.getPrice())
+                .status(OrderStatus.PENDING)
+                .createDate(LocalDateTime.now())
+                .build();
+    }
 }

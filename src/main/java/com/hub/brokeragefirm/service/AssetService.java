@@ -1,13 +1,15 @@
 package com.hub.brokeragefirm.service;
 
-import com.hub.brokeragefirm.dto.request.DepositRequest;
-import com.hub.brokeragefirm.dto.request.WithdrawRequest;
+import com.hub.brokeragefirm.dto.request.MoneyTransferRequest;
 import com.hub.brokeragefirm.dto.response.AssetResponse;
+import com.hub.brokeragefirm.dto.response.MoneyTransferResponse;
 
 import java.util.List;
 
 public interface AssetService {
     List<AssetResponse> listAssets(Long customerId);
-    void deposit(DepositRequest request);
-    void withdraw(WithdrawRequest request);
+
+    MoneyTransferResponse deposit(MoneyTransferRequest request);
+
+    MoneyTransferResponse withdraw(MoneyTransferRequest request);
 }

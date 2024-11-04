@@ -11,6 +11,6 @@ public interface OrderService {
 
     List<OrderResponse> listOrders(Long customerId, LocalDate startDate, LocalDate endDate);
 
-    void cancelOrder(Long orderId);
+    OrderResponse cancelOrder(Long orderId);
 
 }
