@@ -48,17 +48,15 @@ mvn clean install
 mvn spring-boot:run
 ```
 
-The application will be available at `http://localhost:8080`
-
 ## API Endpoints
 
 ### Orders
-- POST /api/orders - Create new order
-- GET /api/orders - List orders
-- DELETE /api/orders/{orderId} - Cancel order
+- POST /api/orders/create - Create new order
+- GET /api/orders/list - List orders
+- POST /api/orders/cancel/{orderId} - Cancel order
 
 ### Assets
-- GET /api/assets - List assets
+- GET /api/assets/list - List assets
 - POST /api/assets/deposit - Deposit money
 - POST /api/assets/withdraw - Withdraw money
 
